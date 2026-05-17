@@ -69,14 +69,69 @@ This project demonstrates how blockchain can be used to build a **trustless voti
 ```
 votex/
 │
-├── contracts/        # Solidity smart contracts
-├── scripts/          # Deployment scripts
-├── test/             # Contract test cases
-├── frontend/         # React / Next.js app
+├── 📄 Root Configuration Files
+│   ├── hardhat.config.ts          # Hardhat configuration (networks, solidity version)
+│   ├── tsconfig.json              # TypeScript configuration
+│   ├── package.json               # Dependencies & project metadata
+│   ├── package-lock.json          # Locked dependency versions
+│   ├── .env                       # Environment variables (RPC URLs, private keys)
+│   ├── .gitignore                 # Git ignore rules
+│   └── README.md                  # Project documentation
 │
-├── hardhat.config.js
-├── package.json
-└── README.md
+├── 📜 Smart Contracts
+│   └── contracts/
+│       └── VoteX.sol              # Main voting smart contract
+│           ├── Candidate struct   # Candidate data structure
+│           ├── vote()             # Voting function
+│           ├── getCandidates()    # Query candidates
+│           └── hasVoted mapping   # Double-vote prevention
+│
+├── 🧪 Tests
+│   └── test/
+│       └── votex-test.ts          # Unit tests for VoteX contract
+│           ├── Contract deployment test
+│           ├── Voting functionality test
+│           └── Double-vote prevention test
+│
+├── 🚀 Deployment & Interaction Scripts
+│   └── scripts/
+│       ├── deploy.ts              # Deploy contract to testnet
+│       ├── interact.ts            # Local contract interaction
+│       └── send-op-tx.ts          # Send optimism transactions
+│
+├── 🔧 Type Generation (Auto-generated)
+│   └── types/
+│       └── ethers-contracts/
+│           ├── VoteX.ts           # TypeScript type for VoteX contract
+│           ├── VoteX__factory.ts  # Contract factory for deployment
+│           ├── common.ts          # Common types
+│           ├── index.ts           # Type exports
+│           └── hardhat.d.ts       # Hardhat type definitions
+│
+├── 📦 Ignition Deployment Module
+│   └── ignition/
+│       └── modules/
+│           └── Counter.ts         # Ignition deployment module (unused)
+│
+├── 📁 Auto-generated Directories (Gitignored)
+│   ├── artifacts/                 # Compiled contract ABIs & bytecode
+│   ├── cache/                     # Hardhat compilation cache
+│   ├── coverage/                  # Test coverage reports
+│   ├── dist/                      # TypeScript compiled output
+│   ├── node_modules/              # Dependencies
+│   └── .git/                      # Git history
+│
+└── ❌ Missing (To Be Created)
+    └── frontend/                  # React/Next.js app (NEEDS TO BE BUILT)
+        ├── src/
+        │   ├── pages/             # Next.js pages
+        │   ├── components/        # React components
+        │   ├── hooks/             # Custom React hooks
+        │   ├── services/          # Web3/ethers.js integration
+        │   └── styles/            # CSS/Tailwind
+        ├── public/                # Static assets
+        ├── package.json
+        └── next.config.js
 ```
 
 ---
