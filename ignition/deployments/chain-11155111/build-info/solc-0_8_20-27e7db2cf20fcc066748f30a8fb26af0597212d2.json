@@ -1,0 +1,39 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_20-27e7db2cf20fcc066748f30a8fb26af0597212d2",
+  "solcVersion": "0.8.20",
+  "solcLongVersion": "0.8.20+commit.a1b79de6",
+  "userSourceNameMap": {
+    "contracts/VoteX.sol": "project/contracts/VoteX.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "shanghai",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/VoteX.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract VoteX {\r\n\r\n    struct Candidate {\r\n        uint id;\r\n        string name;\r\n        uint voteCount;\r\n    }\r\n\r\n    Candidate[] public candidates;\r\n\r\n    mapping(address => bool) public hasVoted;\r\n\r\n    constructor() {\r\n        candidates.push(Candidate(0, \"Alice\", 0));\r\n        candidates.push(Candidate(1, \"Bob\", 0));\r\n    }\r\n\r\n    function vote(uint _candidateId) public {\r\n        require(!hasVoted[msg.sender], \"You have already voted\");\r\n        require(_candidateId < candidates.length, \"Invalid candidate\");\r\n\r\n        candidates[_candidateId].voteCount += 1;\r\n        hasVoted[msg.sender] = true;\r\n    }\r\n\r\n    function getCandidates() public view returns (Candidate[] memory) {\r\n        return candidates;\r\n    }\r\n}\r\n"
+      }
+    }
+  }
+}
