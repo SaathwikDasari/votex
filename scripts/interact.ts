@@ -4,7 +4,7 @@ const { ethers } = await network.connect();
 async function main() {
   const [alice, bob] = await ethers.getSigners();
 
-  const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+  const contractAddress = "0x33793746a02cE7075323bcdDe4345749422BAcb4";
   const VoteX = await ethers.getContractFactory("VoteX");
   const votex = VoteX.attach(contractAddress) as any;
 
